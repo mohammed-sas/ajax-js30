@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <input type="text" name="" id="input" placeholder="Enter the city or state to find">
+    <div>
+        <ul class="suggestion">
+
+        </ul>
+    </div>
+    
+</body>
+<script >
+    const input = document.querySelector('#input');
+    const suggestion = document.querySelector('.suggestion');
+    const cities=[];
+    const url = "https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json" ;
+
+    fetch(url)
+    .then(response => response.json())
+    // ... is a spread operator which spreads the data into an array
+    .then(data => cities.push(...data));
+
+    function findMatches(wordToMatch,cities){
+        return cities.filter(place => {
+            const regex = new RegExp(wordToMatch,'gi');
+
+            return place.city.match(regex) || place.state.match(regex);
+
+        })
+    }
+
+    function displayMatch(){
+        
+       const matchArray = findMatches(this.value,cities);
+       const html = matchArray.map(place => {
+           const regex = new RegExp(this.value,'gi');
+           const city = place.city.replace(regex,`<span class='hl'>${this.value}</span>`);
+           return `
+            <li>
+                <span> ${city} ${place.state} </span>
+            </li>
+           `
+       }).join('');
+    //    here the join turns an array with multiple item to string
+
+       suggestion.innerHTML = html;
+    }
+
+    input.addEventListener('change',displayMatch);
+    input.addEventListener('keyup',displayMatch);
+</script>
+</html>
