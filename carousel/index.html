@@ -41,8 +41,9 @@
           
       })
       let counter = 0;
+      let pause = false;
       setInterval(()=>{
-          
+          console.log(counter);
           if(counter>2)
                 counter=0;
             carouselItem.forEach(item =>{
@@ -51,10 +52,22 @@
               buttons.forEach(button =>{
                   button.classList.remove('carousel-btn-active');
               })
+             
+                
               
             carouselItem[counter].classList.add('carousel-item-selected');
              buttons[counter].classList.add('carousel-btn-active');
+             
+             carouselItem[counter].addEventListener('mouseover',()=>{
+                 pause=true;
+             })
+             carouselItem[counter].addEventListener('mouseout',()=>{
+                 pause=false;
+             })
+             if(!pause)
              counter++;
+             
+
       },3000);
   </script>
 </html>
