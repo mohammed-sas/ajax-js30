@@ -1,0 +1,15 @@
+.post-body{
+    border: 1px solid black;
+    padding: 1rem;
+}
+
+.page-number{
+    display: inline-block;
+    background-color: steelblue;
+    height: 15px;
+    width: 15px;
+    text-align: center;
+    color: white;
+    margin: 0 5px;
+    padding: 10px;
+}
