@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="carousel">
+      <div class="carousel-item ">Content 1</div>
+      <div class="carousel-item">Content 2</div>
+      <div class="carousel-item">Content 3</div>
+      <div class="carousel-nav">
+        <span class="carousel-btn"></span>
+        <span class="carousel-btn"></span>
+        <span class="carousel-btn"></span>
+      </div>
+    </div>
+  </body>
+
+  <script>
+      const carouselItem = document.querySelectorAll('.carousel-item');
+     
+      const buttons = document.querySelectorAll(".carousel-btn");
+      carouselItem[0].classList.add('carousel-item-selected');
+      buttons[0].classList.add('carousel-btn-active');
+      buttons.forEach((button,i)=>{
+          button.addEventListener('click',()=>{
+              carouselItem.forEach(item =>{
+                  item.classList.remove('carousel-item-selected');
+              })
+              buttons.forEach(button =>{
+                  button.classList.remove('carousel-btn-active');
+              })
+              console.log(carouselItem[i]);
+            carouselItem[i].classList.add('carousel-item-selected');
+             button.classList.add('carousel-btn-active');
+          })
+          
+      })
+      let counter = 0;
+      setInterval(()=>{
+          
+          if(counter>2)
+                counter=0;
+            carouselItem.forEach(item =>{
+                  item.classList.remove('carousel-item-selected');
+              })
+              buttons.forEach(button =>{
+                  button.classList.remove('carousel-btn-active');
+              })
+              
+            carouselItem[counter].classList.add('carousel-item-selected');
+             buttons[counter].classList.add('carousel-btn-active');
+             counter++;
+      },3000);
+  </script>
+</html>
