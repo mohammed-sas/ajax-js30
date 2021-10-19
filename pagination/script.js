@@ -78,7 +78,7 @@ const createPageButton=(totalPage)=>{
 searchBtn.addEventListener('click',()=>{
     let searchString = searchCountry.value.toLowerCase();
     console.log(searchString);
-    let searchArray = initialData.filter(item =>  item.country.toLowerCase().includes(searchString));
+    let searchArray = initialData.filter(item =>  item.country.substring(0,searchString.length).toLowerCase().includes(searchString));
     findNumberOfPages(searchArray);
 })
 
