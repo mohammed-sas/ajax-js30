@@ -1,0 +1,22 @@
+body{
+    position: relative;
+    height: 100vh;
+}
+
+.rating-container{
+    position:absolute;
+    top: 40%;
+    left:25%;
+}
+
+.rating-container span i{
+    font-size: 5rem;
+}
+.rating-container span{
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.fill{
+    color: #FBBF24;
+}
