@@ -9,6 +9,9 @@
     <script src="script.js" defer></script>
   </head>
   <body>
+    <header>
+        <h1>Issue Tracker</h1>
+    </header>
     <div class="form-container">
         <form action="" id="form">
             <input type="text" name="task" value="" placeholder="Enter the task">
@@ -17,22 +20,20 @@
                 <option value="progress">In Progress</option>
                 <option value="completed">Completed</option>
             </select>
-            <input type="submit" value="Add Task">
+            <select name="priority" id="">
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+            </select>
+            <input type="submit" value="Add Task" class="btn-primary">
         </form>
     </div>
+   
     <main>
         
       <div class="jira-container" id="todo">
         <h3>Todo</h3>
-        <div class="list-item" draggable="true">
-            list 1
-        </div>
-        <div class="list-item" draggable="true">
-            list 2
-        </div>
-        <div class="list-item" draggable="true">
-            list 3
-        </div>
+       
       </div>
       <div class="jira-container" id="progress">
         <h3>In Progress</h3>

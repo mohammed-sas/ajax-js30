@@ -1,7 +1,10 @@
+header h1{
+    text-align: center;
+}
 body{
     margin: 0;
     padding: 0;
-    background: #F87171;
+    background: white;
 }
 
 main{
@@ -13,8 +16,9 @@ main{
     margin: 5px;
     width: 300px;
     height: 50vh;
-    border: 1px solid #B91C1C;
-    background-color: #DC2626;
+    border: 1px solid #1E3A8A;
+    background-color: #A5B4FC;
+    border-radius: 3px;
 }
 
 .jira-container h3{
@@ -22,7 +26,8 @@ main{
     text-align: center;
     padding: 1rem;
     color: white;
-    background-color:#B91C1C ;
+    background-color:#4338CA ;
+    
 }
 
 .list-item{
@@ -36,6 +41,9 @@ main{
 .form-container{
     max-width: 500px;
     margin: 10px auto;
+    border: 2px solid #1E3A8A ;
+    padding: 1rem;
+    border-radius: 5px;
 }
 .form-container form{
     display: flex;
@@ -45,4 +53,23 @@ main{
 .form-container form>*{
     margin-top:5px ;
     padding: 0.5rem;
+}
+
+.btn-primary{
+    background-color: #4338CA;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.high{
+    border-right: 5px solid #DC2626;
+}
+
+.medium{
+    border-right: 5px solid #FBBF24;
+}
+
+.low{
+    border-right: 5px solid #059669;
 }

@@ -9,6 +9,7 @@ const options={
     progress : progressContainer,
     completed : completedContainer
 }
+
 let draggedItem = null;
 
 const dragged=()=>{
@@ -47,11 +48,11 @@ dragged();
 
         container.addEventListener('dragleave',function (e){
             e.preventDefault();
-            this.style.backgroundColor = '#DC2626';
+            this.style.backgroundColor = '#A5B4FC';
         })
 
         container.addEventListener('drop',function (){
-            this.style.backgroundColor = '#DC2626';
+            this.style.backgroundColor = '#A5B4FC';
             this.append(draggedItem);
         })
     }
@@ -62,10 +63,12 @@ form.addEventListener('submit', (e)=>{
     const formdata = new FormData(form);
     const task = formdata.get('task');
     const option =formdata.get('option');
+    const priority = formdata.get('priority');
     console.log(task)
     console.log(option)
     const div = document.createElement('div')
     div.classList.add('list-item');
+    div.classList.add(priority.toLowerCase());
     div.innerText=task;
     div.setAttribute('draggable','true');
     options[option].appendChild(div);
