@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="search" id="search">
+</body>
+<script >
+    let counter=0;
+    let name="mohammed"
+    const searchField = document.querySelector('#search');
+    const fetchResult=()=>{
+        console.log(`fetching data ${counter++} `);
+    }
+    
+    const debounce =(fn,delay)=>{
+        let interval;
+        
+        return (...args)=>{
+            clearTimeout(interval);
+            
+            interval=setTimeout(()=>{fn(...args)},delay);
+            
+        }
+    }
+  
+    
+    const optimizedFetch = debounce(fetchResult,400);
+    searchField.addEventListener('keyup',optimizedFetch);
+
+    
+</script>
+</html>

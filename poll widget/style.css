@@ -1,0 +1,63 @@
+body{
+    background-color: 
+    #6EE7B7;
+    position: relative;
+}
+
+.questions{
+    display: flex;
+    justify-content: space-between;
+}
+
+.widget-container{
+    max-width: 400px;
+    max-height: 100vh;
+    background-color: white;
+    margin: auto;
+    margin-top: 15%;    
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.widget-container>div{
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    margin-top: 5px;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+.selected{
+    border: 2px solid #059669 !important;
+}
+.percent-value{
+    display: none;
+}
+.percentage{
+    display: none;
+    width: 100%;
+    height: 4px;
+    background-color: rgba(0, 0, 0, 0.1);
+    margin-top: 5px;
+}
+
+.thirty-percent{
+    width: 30%;
+    height: inherit;
+    background-color:#059669  ;
+}
+
+.five-percent{
+    width: 5%;
+    height: inherit;
+    background-color:#059669  ;
+}
+.fifty-percent{
+    width: 50%;
+    height: inherit;
+    background-color:#059669  ;
+}
+.fifteen-percent{
+    width: 15%;
+    height: inherit;
+    background-color:#059669  ;
+}
