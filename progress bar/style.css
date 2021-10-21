@@ -1,0 +1,25 @@
+@keyframes changeShape{
+    from{
+        width: 0%;
+    }
+    to{
+        width: 100%;
+    }
+}
+
+:root{
+    --animation-time : 3s;
+    --animation-counter:1;
+}
+
+.progress-bar{
+    height: 50px;
+    width: 600px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.inner{
+    height: 50px;
+    animation: changeShape var(--animation-time) ease-in-out var(--animation-counter) alternate;
+    background-color: rgba(0, 0, 0, 1);
+}
+
