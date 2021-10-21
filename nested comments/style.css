@@ -1,0 +1,22 @@
+body{
+    margin: 0;
+    padding: 0;
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.comments-list-container{
+    text-align: left;
+    margin-top: 1rem;
+    width: inherit;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.comment-card{
+    padding-top: 10px ;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    border:1px solid gold;
+}

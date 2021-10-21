@@ -23,3 +23,9 @@
     background-color: rgba(0, 0, 0, 1);
 }
 
+.inner-2{
+    height: 50px;
+    animation: changeShape var(--animation-time) ease-in-out var(--animation-counter) alternate;
+    background-color: rgba(0, 0, 0, 1);
+}
+
