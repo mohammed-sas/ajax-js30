@@ -16,16 +16,18 @@ body{
 
 .comment-card{
     padding-top: 2px ;
-    padding-bottom: 2px;
+    padding-left: 5px;
+    padding-bottom: 8px;
     border-radius: 5px;
-    border:1px solid gold;
+    border:1px solid deeppink;
 }
 
 .btn-primary{
-    background-color: indianred;
+    background-color: #2874f0;
     color: white;
     border-radius: 5px;
-    padding:0.1rem;
+    padding:5px 10px;
     cursor: pointer;
+    margin-bottom: 3px;
     
 }
