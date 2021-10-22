@@ -1,7 +1,7 @@
 body{
-    margin: 0;
-    padding: 0;
-    max-width: 800px;
+    margin: 10px;
+    padding: 10px;
+    
     margin: auto;
     text-align: center;
     margin-top: 2rem;
@@ -9,14 +9,23 @@ body{
 
 .comments-list-container{
     text-align: left;
-    margin-top: 1rem;
+    margin-top: 0.1rem;
     width: inherit;
     border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .comment-card{
-    padding-top: 10px ;
-    padding-bottom: 10px;
+    padding-top: 2px ;
+    padding-bottom: 2px;
     border-radius: 5px;
     border:1px solid gold;
+}
+
+.btn-primary{
+    background-color: indianred;
+    color: white;
+    border-radius: 5px;
+    padding:0.1rem;
+    cursor: pointer;
+    
 }
