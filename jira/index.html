@@ -1,25 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="script.js" defer></script>
-    <style>
-        .container{
-            height: 50px;
-            background-color: teal;
-            color: white;
-            margin-top: 10px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container" draggable="true">Apple</div>
-    <div class="container" draggable="true">Banana</div>
-    <div class="container" draggable="true">Orange</div>
-    <div class="container" draggable="true">Mango</div>
-    <div class="container" draggable="true">Kiwi</div>
-</body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div style="display: flex;">
+      <div class="form-container">
+        <form class="form" id="list-form">
+          <h2>Add New List</h2>
+          <input
+            type="text"
+            name="list-name"
+            placeholder="Enter the list name..."
+          />
+          <input type="submit" value="Add list" />
+        </form>
+      </div>
+      <div class="form-container">
+        <h2>Add New Task</h2>
+        <form class="form" id="task-form">
+          <input type="text" name="task" placeholder="Enter the task name...." />
+          <select name="task-options" id="task-options"></select>
+          <input type="submit" value="Add Task" />
+        </form>
+      </div>
+    </div>
+    <div class="list-container"></div>
+  </body>
 </html>

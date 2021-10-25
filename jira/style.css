@@ -1,0 +1,48 @@
+.list-body{
+    min-height: 300px;
+    width: 20%;
+   
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.list-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.list-body h3{
+    background-color: black;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0.5rem 0;
+}
+
+.form-container{
+    text-align: center;
+    margin: auto;
+    max-width: 600px;
+    margin-bottom: 10px;
+
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+#list-form>*,#task-form>*{
+    width: 100%;
+    margin-top: 5px;
+    padding: 0.5rem 0;
+}
+
+.task-item{
+    padding:0.5rem 0.1rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 5px 2px;
+}
