@@ -217,6 +217,7 @@ listItems.forEach((list) => {
   });
 });
 
+
 const deleteList = (id) => {
   const allList = getListFromStorage();
   for (let i in allList) {
