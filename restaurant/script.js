@@ -5,41 +5,75 @@ const cardContainer = document.querySelector('.card-container');
 const searchBox = document.querySelector('#search');
 const sortOptions = document.querySelector('#sort');
 const pageIndexes = document.querySelector('.page-indexes');
+const favBtn = document.querySelector('#favBtn');
+let favourites;
+
+const getFavourite=()=>{return JSON.parse(localStorage.getItem('favourites'))};
+const setFavourite=(list)=>localStorage.setItem('favourites',JSON.stringify(list));
 let pageStart=0;
-let itemPerPage=2;
-const createCard= (list)=>{
+let itemPerPage=3;
+const createCard= (list,favouriteList)=>{
     let tags="";
+    let resFavourites
     if(list.tags.length>0){
         list.tags.forEach(tag=>{
             tags +=`<span>${tag}</span>`;
         })
     }
-
+    if(favouriteList)
+     resFavourites = favouriteList.find(item=> item == list.id);
     let item=`<div><div class=image-container><img src=${list.url}>
     </div>
     <div class=flex>
     <h4>${list.name}</h4>
-    <span class=rating>${list.rating} <i class="fas fa-star"></i></span>
+    <span class=rating>${list.rating} <i class="fas fa-star "></i></span>
     </div>
     <div class=tags>
         ${tags}
     </div>
+    <div data-parentid=${list.id} class=eta>
+    <small class=fav><i class="fas fa-star ${resFavourites != undefined ? "fill":""} "></i></small>
     <small>ETA : ${list.eta} mins</small>
-    </div>`;
+    </div>
+    </div>
+    
+    `;
     return item;
 }
 
 
 const renderView=async (allList)=>{
     let fullView="";
+    let favouriteList=getFavourite();
     allList.forEach(list=>{
         
         
-         fullView += createCard(list);
+         fullView += createCard(list,favouriteList);
     });
     
     
      cardContainer.innerHTML= fullView;
+
+     favourites = document.querySelectorAll('.fav');
+     favourites.forEach(favourite=>{
+        favourite.addEventListener('click',(e)=>{
+            let list=[];
+            let id = e.target.parentNode.parentNode.getAttribute('data-parentid');
+            e.target.classList.add('fill');
+            if(getFavourite()){
+                list = getFavourite();
+                
+            }else{
+                localStorage.setItem('favourites',JSON.stringify(list));
+            }
+            if(list.find(item=> item==id) == undefined)
+            list.push(id);
+
+            setFavourite(list);
+
+        })
+    })
+   
 }
 
 
@@ -76,7 +110,7 @@ sortOptions.addEventListener('change',(e)=>{
 const generateSortedList =(option)=>{
     
     if(option === "name"){
-        dbList = lists.sort(function(a,b){
+        dbList = dbList.sort(function(a,b){
             if(a.name.toLowerCase() < b.name.toLowerCase())
                 return -1;
             else if(a.name.toLowerCase() > b.name.toLowerCase())
@@ -88,7 +122,7 @@ const generateSortedList =(option)=>{
         })
         
     }else if(option ==="rating"){
-        dbList = lists.sort(function(a,b){
+        dbList = dbList.sort(function(a,b){
             if(a.rating < b.rating)
                 return -1;
             else if(a.rating > b.rating)
@@ -99,7 +133,7 @@ const generateSortedList =(option)=>{
         })
         
     }else if(option ==="eta"){
-        dbList = lists.sort(function(a,b){
+        dbList = dbList.sort(function(a,b){
             if(a.eta < b.eta)
                 return -1;
             else if(a.eta>b.eta)
@@ -126,8 +160,23 @@ const createPageIndex=(pages)=>{
 pageIndexes.addEventListener('click',e=>{
     let si =(Number(e.target.innerText)-1)*itemPerPage;
     let ei = si+itemPerPage;
-    console.log(si,ei);
+  
     renderView(dbList.slice(si,ei));
+})
+
+
+favBtn.addEventListener('click',()=>{
+    let favouriteList = getFavourite();
+    console.log(favouriteList);
+    dbList = lists.filter(list =>{
+        let res = favouriteList.find(item=> item == list.id);
+
+       if(res != undefined)
+        return true;
+    })
+    pages = Math.ceil(dbList.length/itemPerPage);
+    createPageIndex(pages);
+    renderView(dbList.slice(pageStart,pageStart+itemPerPage));
 })
 
 renderView(dbList.slice(pageStart,pageStart+itemPerPage));

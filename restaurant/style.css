@@ -67,3 +67,27 @@
     display: flex;
     justify-content: center;
 }
+
+.eta{
+    display: flex;
+    justify-content: flex-end;
+    width: 85%;
+}
+
+.eta>*{
+    margin-right: 5px;
+}
+
+.fav{
+    cursor: pointer;
+}
+
+.fill{
+    color:#FBBF24; 
+}
+
+.sort{
+    max-width: 600px;
+    text-align: center;
+    margin: 10px auto;
+}
