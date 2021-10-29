@@ -1,0 +1,26 @@
+body{
+    margin: 0;
+    padding: 0;
+    max-width: 600px;
+    margin: 10px auto;
+   
+}
+
+.grid{
+    height: 400px;
+    width: 200px;
+    background-color: yellow;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.grid div{
+    height: 20px;
+    width: 20px;
+    
+}
+
+.tetromino{
+    background-color: blue;
+    z-index: 1;
+}
